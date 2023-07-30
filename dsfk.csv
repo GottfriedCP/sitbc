@@ -160,8 +160,7 @@
 13713009;13;Sumatera Barat;71;1371;Kota Padang;3;Klinik;009;KLINIK ARUM SARI;Jl. Sutan Syahrir no. 332;;Tuti murni;81363256331;
 13713010;13;Sumatera Barat;71;1371;Kota Padang;3;Klinik;010;KLINIK ASSALAM;JL. Gajah Mada No. 21 Padang;;Novia;85263073318;
 13713011;13;Sumatera Barat;71;1371;Kota Padang;3;Klinik;011;KLINIK ASYSYIFA MEDIKA PADANG;Jl. jakarta Blok G no 2 Siteba Kel. Surau Gadang, Kec.Nanggalo, Padang;;Leli Fitrian;82268340251;
-13713012;13;Sumatera Barat;71;1371;Kota Padang;3;Klinik;012;KLINIK AVICENNA;"Jln.MH.Thamrin No.35
- Alang Laweh, Kec. Padang Sel., Kota Padang";;Suci;85274305878;
+13713012;13;Sumatera Barat;71;1371;Kota Padang;3;Klinik;012;KLINIK AVICENNA;Jln.MH.Thamrin No.35 Alang Laweh, Kec. Padang Sel., Kota Padang;;Suci;85274305878;
 13713013;13;Sumatera Barat;71;1371;Kota Padang;3;Klinik;013;KLINIK AZIMAR ANAS;JL. DR. M. HATTA NO 12 a Anduring;;dr.Juli;82169860808;
 13713014;13;Sumatera Barat;71;1371;Kota Padang;3;Klinik;014;KLINIK BPK SUMBAR;Jalan Khatib Sulaiman no. 54, Ulak Karang Selatan, Kecamatan Padang Utara;;;;
 13713015;13;Sumatera Barat;71;1371;Kota Padang;3;Klinik;015;KLINIK CEMARA PKBI;Jalan Sutan Syahrir No.50 Seberang Padang;;dr.farisa;82232389301;
@@ -3044,9 +3043,7 @@
 32031002;32;Jawa Barat;03;3203;Cianjur;1;Rumah Sakit;002;RS Umum Daerah Cimacan;Jl. Raya Cimacan No.17A, Palasari, Kec. Cipanas, Kabupaten Cianjur, Jawa Barat 43253;(0263) 285299;Neni;87820076432;
 32031003;32;Jawa Barat;03;3203;Cianjur;1;Rumah Sakit;003;RS Umum Daerah Pagelaran;JL.RAYA PAGELARAN NO 18 KABUPATEN CIANJUR JAWA BARAT 43266;085864817874;Desri;8156446700;
 32031004;32;Jawa Barat;03;3203;Cianjur;1;Rumah Sakit;004;RS Umum Daerah Sayang;Jl. Rumah Sakit No.1 Cianjur;(0263) 2361093;Helvi;85222033380;
-32031005;32;Jawa Barat;03;3203;Cianjur;1;Rumah Sakit;005;RS Umum Dr. Hafiz;"Jl. Pramuka No.15
- Bojong, Karangtengah
- Cianjur - Jawabarat";(0263) 261026;Ridwan;81222901945;
+32031005;32;Jawa Barat;03;3203;Cianjur;1;Rumah Sakit;005;RS Umum Dr. Hafiz;Jl. Pramuka No.15 Bojong, Karangtengah Cianjur - Jawabarat;(0263) 261026;Ridwan;81222901945;
 32032001;32;Jawa Barat;03;3203;Cianjur;2;Puskesmas;001;AGRABINTA;Jl. Raya Bojongterong Rt 01/01 Ds. Mekarsari, Kec. Agrabinta;(0263) 2910000;Dafik Kafabih;85723355806;
 32032002;32;Jawa Barat;03;3203;Cianjur;2;Puskesmas;002;BOJONGLARANG;Jl. Pasar Bojonglarang Ds. Bojolarang, Kec. Cijati;(0263) 12345678;Ai Teti;85723199696;
 32032003;32;Jawa Barat;03;3203;Cianjur;2;Puskesmas;003;BOJONGPICUNG;Jl. Moch. Ali Ds. Neglasari, Kec. Bojongpicung;(0263) 12345678;Siti Komariah;81912104000;
@@ -3060,21 +3057,11 @@
 32032011;32;Jawa Barat;03;3203;Cianjur;2;Puskesmas;011;CIDAUN;Jl. Raya Jayanti Cidaun, Kec. Cidaun;082316464284;Heri;82121352265;
 32032012;32;Jawa Barat;03;3203;Cianjur;2;Puskesmas;012;CIHERANG;Jalan Raya Bandung KM. 8 , Desa Ciherang Kecamatan Karangtengah 43281;082121352265;Laila Lesnasari;81977604111;
 32032013;32;Jawa Barat;03;3203;Cianjur;2;Puskesmas;013;CIJAGANG;Kp. Cipurut RT 03 RW 03 Desa Cijagang Cikalongkulon Cianjur;(0263) 2323439;Dedi;85720728000;
-32032014;32;Jawa Barat;03;3203;Cianjur;2;Puskesmas;014;CIJATI;"Ds. Cijati, Kec. Cijati
- Kab. Cianjur
- Prov. Jawa Barat";(0263) 12345678;Indir Islamiati;82217621674;
-32032015;32;Jawa Barat;03;3203;Cianjur;2;Puskesmas;015;CIJEDIL;"Jl. Raya Puncak Km 7 Ds. Cijedil, Kec. Cugenang
- Kab. Cianjur
- Prov. Jawa Barat";082217621674;Rini;81220420538;
-32032016;32;Jawa Barat;03;3203;Cianjur;2;Puskesmas;016;CIKADU;"Koleberes, Kec. Cikadu
- Kab. Cianjur
- Prov. Jawa Barat";089648143860;Susi Setiawati, Amd.Keb;81572788173;
-32032017;32;Jawa Barat;03;3203;Cianjur;2;Puskesmas;017;CIKALONGKULON;"Jl. Aria Wiratanudatar Ds. Sukagalih, Kec. Cikalongkulon
- Kab. Cianjur
- Prov. Jawa Barat";081572788173;Sri Yudha;82111817884;
-32032018;32;Jawa Barat;03;3203;Cianjur;2;Puskesmas;018;CIKONDANG;"Jl. Cikondang Sukarama, Kec. Bojongpicung
- Kab. Cianjur
- Prov. Jawa Barat";082111817884;Nonok Kustiah, Amd.Kep;81462366463;
+32032014;32;Jawa Barat;03;3203;Cianjur;2;Puskesmas;014;CIJATI;Ds. Cijati, Kec. Cijati Kab. Cianjur Prov. Jawa Barat;(0263) 12345678;Indir Islamiati;82217621674;
+32032015;32;Jawa Barat;03;3203;Cianjur;2;Puskesmas;015;CIJEDIL;Jl. Raya Puncak Km 7 Ds. Cijedil, Kec. Cugenang Kab. Cianjur Prov. Jawa Barat;082217621674;Rini;81220420538;
+32032016;32;Jawa Barat;03;3203;Cianjur;2;Puskesmas;016;CIKADU;Koleberes, Kec. Cikadu Kab. Cianjur Prov. Jawa Barat;089648143860;Susi Setiawati, Amd.Keb;81572788173;
+32032017;32;Jawa Barat;03;3203;Cianjur;2;Puskesmas;017;CIKALONGKULON;Jl. Aria Wiratanudatar Ds. Sukagalih, Kec. Cikalongkulon Kab. Cianjur Prov. Jawa Barat;081572788173;Sri Yudha;82111817884;
+32032018;32;Jawa Barat;03;3203;Cianjur;2;Puskesmas;018;CIKONDANG;Jl. Cikondang Sukarama, Kec. Bojongpicung Kab. Cianjur Prov. Jawa Barat;082111817884;Nonok Kustiah, Amd.Kep;81462366463;
 32032019;32;Jawa Barat;03;3203;Cianjur;2;Puskesmas;019;CILAKU;Jl. Raya Cibeber KM.9 No.14, Sukasari, Kec. Cibeber, Kabupaten Cianjur, Jawa Barat 4326;081462366463;Reni Aryani, AMK;85860830333;
 32032020;32;Jawa Barat;03;3203;Cianjur;2;Puskesmas;020;CIPANAS;Jl. Pahlawan No. 1, Kec. Cipanas;(0263) 334244;Marlinda Amd kep;87734427020;
 32032021;32;Jawa Barat;03;3203;Cianjur;2;Puskesmas;021;CIRANJANG;Jl. Rumah Sakit No. 194, Kec. Ciranjang;(0263) 519371;Koharudin;81911890415;
