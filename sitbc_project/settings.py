@@ -151,5 +151,8 @@ CSRF_TRUSTED_ORIGINS = config("CSRF_HOSTS", cast=Csv())
 CSRF_ALLOWED_ORIGINS = config("CSRF_HOSTS", cast=Csv())
 CORS_ORIGINS_WHITELIST = config("CSRF_HOSTS", cast=Csv())
 
-USE_X_FORWARDED_HOST = config("USE_X_FORWARDED_HOST")
-FORCE_SCRIPT_NAME = config("FORCE_SCRIPT_NAME")
+server_dir = config("SERVER_DIR", "")
+if server_dir:
+    USE_X_FORWARDED_HOST = server_dir
+    FORCE_SCRIPT_NAME = server_dir
+    SESSION_COOKIE_PATH = server_dir
