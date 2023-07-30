@@ -3,9 +3,12 @@ from django.shortcuts import render
 from .models import Faskes
 
 import random
+import urllib.parse
 
 
 def index(request):
+    survey_url = "https://pusjakuk2.ddns.net/limesurvey/index.php/535678?lang=id&"
+    params = {}
     faskes = None
     faskes_missing = False
     error_msg = ""
@@ -17,6 +20,21 @@ def index(request):
                 "challenge_answer", 0
             ), f"Jawaban pertanyaan pengaman tidak cocok."
             faskes = Faskes.objects.get(id_faskes=id_faskes)
+            params = {
+                "PROV": faskes.kd_prov,
+                "KABKOTA": faskes.kode_prov_kk,
+                "ALMT": faskes.alamat,
+                "NOF": faskes.no_urut,
+                "NMF": faskes.nama_faskes,
+                "TELP": faskes.telepon,
+                "JENISF": faskes.kode_jenis_faskes,
+                "P250A": faskes.nama_cp,
+                "P250B": faskes.no_hp,
+                "CAT": faskes.keterangan if faskes.keterangan else "",
+                "newtest": "Y",
+            }
+            params_url_encoded = urllib.parse.urlencode(params)
+            survey_url = f"{survey_url}{params_url_encoded}"
         except Exception as e:
             faskes_missing = True
             error_msg = e
@@ -36,5 +54,6 @@ def index(request):
             "error_msg": error_msg,
             "op1": op1,
             "op2": op2,
+            "survey_url": survey_url,
         },
     )
