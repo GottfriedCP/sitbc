@@ -23,14 +23,14 @@ def index(request):
             params = {
                 "PROV": faskes.kd_prov,
                 "KABKOTA": faskes.kode_prov_kk,
-                "ALMT": faskes.alamat,
+                "ALMT": str(faskes.alamat).upper(),
                 "NOF": faskes.no_urut,
-                "NMF": faskes.nama_faskes,
+                "NMF": str(faskes.nama_faskes).upper(),
                 "TELP": faskes.telepon,
                 "JENISF": faskes.kode_jenis_faskes,
-                "P250A": faskes.nama_cp,
+                "P250A": str(faskes.nama_cp).upper(),
                 "P250B": faskes.no_hp,
-                "CAT": faskes.keterangan if faskes.keterangan else "",
+                "CAT": str(faskes.keterangan).upper() if faskes.keterangan else "",
                 "newtest": "Y",
             }
             params_url_encoded = urllib.parse.urlencode(params)
