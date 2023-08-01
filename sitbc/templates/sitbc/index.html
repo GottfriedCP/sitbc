@@ -17,20 +17,30 @@
         <div class="d-flex flex-wrap justify-content-evenly">
             <div style="width: 480px; margin-top: 1vh;">
                 <form method="POST" action="" class="my-5">
-                    <div class="mb-3">
-                        {% csrf_token %}
+                    {% csrf_token %}
+                    <div class="mb-3" id="inputIdFaskesDiv">
                         <label for="inputIdFaskes" class="form-label">ID Faskes</label>
                         <input name="id_faskes" type="text" class="form-control" id="inputIdFaskes">
+                    </div>
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" name="id_none" type="checkbox" value="1" id="noIDCheck" onchange="valueChanged()">
+                        <label class="form-check-label" for="noIDCheck">
+                            Saya tidak memiliki ID Faskes
+                        </label>
                     </div>
                     <div class="mb-3">
                         <label for="inputChall" class="form-label">Pertanyaan: berapa {{ op1 }} + {{ op2 }}</label>
                         <input name="chall_ans" type="text" class="form-control" id="inputChall">
                         <div id="challHelp" class="form-text">Ini untuk mencegah Spam dan Bot.</div>
                     </div>
-                    <button type="submit" class="btn btn-success">Cari Faskes</button>
+                    <button type="submit" class="btn btn-success">Lanjut</button>
                 </form>
                 {% if error_msg %}
                 <p style="color: red;">{{ error_msg }}</p>
+                {% endif %}
+                {% if notify_for_no_id %}
+                <p>Mohon lanjutkan pengisian Kuesioner Pemetaan melalui link berikut:</p>
+                <a target="_blank" href="{{ base_survey_url }}" class="btn btn-link" role="button">Isi kuesioner</a>
                 {% endif %}
                 {% if faskes %}
                 <dl>
@@ -61,6 +71,18 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" 
+        integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" 
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="text/javascript">
+        $( "#noIDCheck" ).prop( "checked", false );
+        function valueChanged() {
+            if ($('#noIDCheck').is(":checked"))
+                $("#inputIdFaskesDiv").hide();
+            else
+                $("#inputIdFaskesDiv").show();
+        }
+    </script>
 </body>
 
 </html>

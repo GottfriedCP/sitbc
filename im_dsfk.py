@@ -2,6 +2,9 @@ from sitbc.models import Faskes
 
 import csv
 
+existing_faskes = Faskes.objects.all()
+existing_faskes.delete()
+
 with open("dsfk.csv", "r") as file:
     n = 0
     csv_reader = csv.reader(file, delimiter=";", quotechar='"')
