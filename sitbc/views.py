@@ -40,7 +40,7 @@ def index(request):
                 params_url_encoded = urllib.parse.urlencode(params)
                 survey_url = f"{survey_url}{params_url_encoded}"
             else:
-                notify_for_no_id = "Mohon isi kuesioner kosong"
+                notify_for_no_id = "ID Faskes belum tersedia di sistem. Mohon isi kuesioner kosong"
         except Exception as e:
             faskes_missing = True
             error_msg = e
