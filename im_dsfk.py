@@ -36,6 +36,8 @@ with open("dsfk.csv", "r") as file:
             no_hp=line_exploded[13],
             keterangan=keterangan,
         )
+        # if len(faskes.id_faskes) != 8:
+            # print(faskes.id_faskes)
         print(faskes)
         faskes.save()
         n += 1
