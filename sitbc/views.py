@@ -7,7 +7,7 @@ import urllib.parse
 
 
 def index(request):
-    base_survey_url = "http://bkpk.ddns.net/limesurvey/index.php/535678?lang=id&"
+    base_survey_url = "http://bkpk.ddns.net/limesurvey/index.php/415764?lang=id&"
     survey_url = base_survey_url
     params = {}
     faskes = None
