@@ -4,6 +4,7 @@ from decouple import config
 import datetime
 import mysql.connector
 import pygsheets
+import simplejson as json
 
 
 class Command(BaseCommand):
@@ -43,7 +44,9 @@ class Command(BaseCommand):
             sh = gc.open("INDV DATA")
             wk = sh[n]
 
-            wk.append_table(rows, start='A2', end=None, dimension='ROWS', overwrite=True)
+            rows_json = json.dumps(rows)
+            # print(rows_json)
+            wk.append_table(rows_json, start='A2', end=None, dimension='ROWS', overwrite=True)
 
             cursor.close()
             cnx.close()
