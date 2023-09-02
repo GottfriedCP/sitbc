@@ -6,6 +6,7 @@ mediaroot
 db.sqlite3
 migrations/
 .env
+creds.json
 
 INFO_DAFTAR.html
 
