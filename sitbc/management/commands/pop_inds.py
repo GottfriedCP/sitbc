@@ -43,6 +43,8 @@ class Command(BaseCommand):
             sh = gc.open("INDV DATA")
             wk = sh[n]
 
+            wk.append_table(rows, start='A2', end=None, dimension='ROWS', overwrite=True)
+
             cursor.close()
             cnx.close()
             n += 1
