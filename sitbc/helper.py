@@ -23,9 +23,12 @@ def pop_ind_nl(self_command):
 
     query = (
         "SELECT l.*, r.* "
-        "FROM `level-1` as l "
-        "INNER JOIN `ind_nl_rec` as r "
+        "FROM `ind_nl_rec` as r "
+        "INNER JOIN `level-1` as l "
         "ON l.`level-1-id` = r.`level-1-id` "
+        "INNER JOIN `cases` as c "
+        "ON l.`case-id` = c.`id` "
+        "WHERE c.deleted = 0 and c.partial_save_mode IS NULL "
     )
 
     cursor.execute(query)
@@ -157,7 +160,7 @@ def pop_ind_nl(self_command):
 
     worksheet = sheet.worksheet(property="title", value="IND_NL")
 
-    worksheet.set_dataframe(df, (2, 1))
+    worksheet.set_dataframe(df, (1, 1))
 
     cursor.close()
     cnx.close()
