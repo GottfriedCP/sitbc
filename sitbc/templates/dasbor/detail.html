@@ -1,0 +1,47 @@
+{% extends 'BASE.html' %}
+
+{% block title_bl %}{{ kk.kode }} {{ kk.nama }}{% endblock %}
+
+{% block body_bl %}
+<div class="container">
+    <h1><code>{{ kk.kode }}</code> {{ kk.nama }}</h1>
+    Provinsi <code>{{ kk.kode_prov }}</code> {{ kk.nama_prov }}
+    <div class="div-table">
+        <table id="datatable" class="table table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>Nama Kabupaten</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for ind in indivs %}
+                <tr>
+                    <td>{{ ind.nama_kab }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
+
+{% block body_add_bl %}
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#datatable').DataTable({
+            pageLength: 100,
+            lengthMenu: [100, 50, 20],
+            searching: true,
+            language: {
+                url: 'https://cdn.datatables.net/plug-ins/1.13.1/i18n/id.json',
+            },
+            // "columnDefs": [
+            //     {
+            //         "orderable": false,
+            //         "targets": -1 // -1 refers to the last column
+            //     }
+            // ],
+        });
+    });
+</script>
+{% endblock %}

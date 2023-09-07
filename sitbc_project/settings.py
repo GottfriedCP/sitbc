@@ -156,3 +156,5 @@ if server_dir:
     USE_X_FORWARDED_HOST = server_dir
     FORCE_SCRIPT_NAME = server_dir
     SESSION_COOKIE_PATH = server_dir
+
+LOGIN_URL = "sitbc:dasbor:login"

@@ -16,5 +16,6 @@ FROM `level-1` as l
 INNER JOIN `ind_nl_rec` as r
 ON l.`level-1-id` = r.`level-1-id`
 
+/usr/bin/php7.4 /home/gp/htdocs/csweb/ivtb/bin/console csweb:process-cases
 
-
+exec(open("im_kk.py").read())
