@@ -1,5 +1,7 @@
 from django.db import models
 
+import datetime
+
 
 class Faskes(models.Model):
     id_faskes = models.CharField(max_length=10, unique=True)
@@ -40,6 +42,34 @@ class Individu(models.Model):
     nama_enum = models.CharField(max_length=100, null=True, blank=True)
     telp_enum = models.CharField(max_length=20, null=True, blank=True)
     tgl_kunjungan = models.CharField(max_length=50, null=True, blank=True)
+
+    def get_tgl_kunjungan(self):
+        tgl_kunjungan = self.tgl_kunjungan
+        if len(tgl_kunjungan) < 8:
+            tgl_kunjungan = f"0{tgl_kunjungan}"
+        return datetime.datetime.strptime(tgl_kunjungan, "%d%m%Y").date()
+
+    def get_jenis_faskes_text(self):
+        try:
+            jf = int(self.jenis_faskes)
+        except:
+            jf = 99
+        if jf == 1:
+            return "RS"
+        elif jf == 2:
+            return "PKM"
+        elif jf == 3:
+            return "KLINIK"
+        elif jf == 4:
+            return "DPM"
+        elif jf == 5:
+            return "BALAI"
+        elif jf == 6:
+            return "LAB"
+        return "INVALID"
+
+    def get_jk_text(self):
+        return "L" if self.jk == "1" else "P"
 
     def save(self, *args, **kwargs):
         kode_kab = "00"

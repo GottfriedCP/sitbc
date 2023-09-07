@@ -9,8 +9,22 @@ from sitbc.models import Individu, KabupatenKota
 @login_required
 def index(request, kode_kab=None):
     kks = KabupatenKota.objects.all().order_by("kode")
+    nas_jml_indiv = 0
+    jml_fk_unik_list = []
+    for kk in kks:
+        jml_fk_unik = (
+            Individu.objects.filter(kode_prov_kab=kk.kode)
+            .values("nu_faskes", "jenis_faskes")
+            .distinct()
+            .count()
+        )
+        nas_jml_indiv += kk.jml_indiv
+        jml_fk_unik_list.append(jml_fk_unik)
+
     context = {
-        "kks": kks,
+        "kks": zip(kks, jml_fk_unik_list),
+        "nas_jml_indiv": nas_jml_indiv,
+        "nas_jml_faskes": sum(jml_fk_unik_list),
     }
     return render(request, "dasbor/index.html", context)
 

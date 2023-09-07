@@ -153,7 +153,7 @@ CORS_ORIGINS_WHITELIST = config("CSRF_HOSTS", cast=Csv())
 
 server_dir = config("SERVER_DIR", "")
 if server_dir:
-    USE_X_FORWARDED_HOST = server_dir
+    USE_X_FORWARDED_HOST = True
     FORCE_SCRIPT_NAME = server_dir
     SESSION_COOKIE_PATH = server_dir
 
