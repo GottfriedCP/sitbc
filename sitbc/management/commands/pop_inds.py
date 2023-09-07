@@ -48,9 +48,12 @@ class Command(BaseCommand):
                     "r.b2r4_f as nama_faskes, "
                     "l.b3r1 as nu_ind, r.b3r3 as nama, r.b3r4 as jk, "
                     "r.b1br1 as nama_enum, r.telp_enum as telp_enum, r.b1br2 as tgl_kunjungan "
-                    "FROM `level-1` as l "
-                    "INNER JOIN `ind_nl_rec` as r "
-                    "ON l.`level-1-id` = r.`level-1-id`"
+                    "FROM `ind_nl_rec` as r "
+                    "INNER JOIN `level-1` as l "
+                    "ON l.`level-1-id` = r.`level-1-id` "
+                    "INNER JOIN `cases` as c "
+                    "ON l.`case-id` = c.`id` "
+                    "WHERE c.deleted = 0 and c.partial_save_mode IS NULL "
                 )
             else:
                 query = (
@@ -61,9 +64,12 @@ class Command(BaseCommand):
                     "r.b2r4_f as nama_faskes, "
                     "l.b3r1 as nu_ind, r.b3r4 as nama, r.b3r5 as jk, "
                     "r.b1br1 as nama_enum, r.telp_enum as telp_enum, r.b1br2 as tgl_kunjungan "
-                    "FROM `level-1` as l "
-                    "INNER JOIN `ind_nl_rec` as r "
-                    "ON l.`level-1-id` = r.`level-1-id`"
+                    "FROM `ind_nl_rec` as r "
+                    "INNER JOIN `level-1` as l "
+                    "ON l.`level-1-id` = r.`level-1-id` "
+                    "INNER JOIN `cases` as c "
+                    "ON l.`case-id` = c.`id` "
+                    "WHERE c.deleted = 0 and c.partial_save_mode IS NULL "
                 )
 
             cursor.execute(query)
