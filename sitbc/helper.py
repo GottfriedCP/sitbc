@@ -36,6 +36,8 @@ def pop_ind_nl(self_command):
 
     # Fetch the result
     rows = cursor.fetchall()
+    number_of_rows = len(rows)
+    self_command.stdout.write(f"number of rows: {number_of_rows}")
     df = pd.DataFrame(rows)
     df.columns = [
         "level-1-id",
@@ -158,11 +160,13 @@ def pop_ind_nl(self_command):
         "cat_inl",
     ]
     df = df.replace({np.nan: None})
-    self_command.stdout.write(f"number of rows: {len(rows)}")
 
-    worksheet = sheet.worksheet(property="title", value="IND_NL")
-    worksheet.clear(start='A1', end=None, fields='*')
-    worksheet.set_dataframe(df, (1, 1))
+    if number_of_rows == 0:
+        self_command.stdout.write(f"nothing to write")
+    else:
+        worksheet = sheet.worksheet(property="title", value="IND_NL")
+        worksheet.clear(start='A1', end=None, fields='*')
+        worksheet.set_dataframe(df, (1, 1))
 
     cursor.close()
     cnx.close()
@@ -201,6 +205,8 @@ def pop_ind_l(self_command):
 
     # Fetch the result
     rows = cursor.fetchall()
+    number_of_rows = len(rows)
+    self_command.stdout.write(f"number of rows: {number_of_rows}")
     df = pd.DataFrame(rows)
     df.columns = [
         "level-1-id",
@@ -283,11 +289,13 @@ def pop_ind_l(self_command):
         "cat_il",
     ]
     df = df.replace({np.nan: None})
-    self_command.stdout.write(f"number of rows: {len(rows)}")
 
-    worksheet = sheet.worksheet(property="title", value="IND_L")
-    worksheet.clear(start='A1', end=None, fields='*')
-    worksheet.set_dataframe(df, (1, 1))
+    if number_of_rows == 0:
+        self_command.stdout.write(f"nothing to write")
+    else:
+        worksheet = sheet.worksheet(property="title", value="IND_L")
+        worksheet.clear(start='A1', end=None, fields='*')
+        worksheet.set_dataframe(df, (1, 1))
 
     cursor.close()
     cnx.close()
