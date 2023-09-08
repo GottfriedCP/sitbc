@@ -43,6 +43,9 @@ class Individu(models.Model):
     telp_enum = models.CharField(max_length=20, null=True, blank=True)
     tgl_kunjungan = models.CharField(max_length=50, null=True, blank=True)
 
+    class Meta:
+        ordering = ['nu_faskes', 'nu_ind']
+
     def get_tgl_kunjungan(self):
         tgl_kunjungan = self.tgl_kunjungan
         if len(tgl_kunjungan) < 8:

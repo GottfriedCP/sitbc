@@ -25,12 +25,12 @@
             <thead>
                 <tr>
                     <th>Nama Kabupaten</th>
-                    <th>Jenis Faskes</th>
-                    <th>Nama Faskes</th>
-                    <th class="text-center">Nomor Urut Faskes</th>
                     <th>Nama Individu</th>
                     <th class="text-center">No. Urut Individu</th>
                     <th>Jenis Kelamin</th>
+                    <th>Jenis Faskes</th>
+                    <th>Nama Faskes</th>
+                    <th class="text-center">Nomor Urut Faskes</th>
                     <th>Nama Enumerator</th>
                     <th>No HP Enumerator</th>
                     <th>Tanggal Kunjungan</th>
@@ -40,12 +40,12 @@
                 {% for ind in indivs %}
                 <tr>
                     <td>{{ ind.nama_kab }}</td>
-                    <td>{{ ind.get_jenis_faskes_text }}</td>
-                    <td>{{ ind.nama_faskes }}</td>
-                    <td class="text-center">{{ ind.nu_faskes }}</td>
                     <td><b>{{ ind.nama }}</b></td>
                     <td class="text-center">{{ ind.nu_ind }}</td>
                     <td>{{ ind.get_jk_text }}</td>
+                    <td>{{ ind.get_jenis_faskes_text }}</td>
+                    <td>{{ ind.nama_faskes }}</td>
+                    <td class="text-center">{{ ind.nu_faskes }}</td>
                     <td>{{ ind.nama_enum }}</td>
                     <td>{{ ind.telp_enum }}</td>
                     <td>{{ ind.get_tgl_kunjungan|date:'d-m-Y' }}</td>
@@ -61,6 +61,7 @@
 <script type="text/javascript">
     $(document).ready(function () {
         $('#datatable').DataTable({
+            aaSorting: [],
             pageLength: 100,
             lengthMenu: [100, 50, 20],
             searching: true,
