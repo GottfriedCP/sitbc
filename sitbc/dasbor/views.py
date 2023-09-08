@@ -33,9 +33,16 @@ def index(request, kode_kab=None):
 def detail(request, kode_kab):
     kk = get_object_or_404(KabupatenKota, kode=kode_kab)
     indivs = Individu.objects.filter(kode_prov_kab=kode_kab)
+    jml_fk_unik = (
+        Individu.objects.filter(kode_prov_kab=kk.kode)
+        .values("nu_faskes", "jenis_faskes")
+        .distinct()
+        .count()
+    )
     context = {
         "kk": kk,
         "indivs": indivs,
+        "jml_faskes": jml_fk_unik,
     }
     return render(request, "dasbor/detail.html", context)
 

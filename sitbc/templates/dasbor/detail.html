@@ -6,6 +6,20 @@
 <div class="container">
     <h1><code>{{ kk.kode }}</code> {{ kk.nama }}</h1>
     Provinsi <code>{{ kk.kode_prov }}</code> {{ kk.nama_prov }}
+    <div>
+        <table class="table table-sm table-borderless" style="max-width: 240px;">
+            <tr>
+                <td>Jumlah Individu</td>
+                <td>:</td>
+                <td>{{ kk.jml_indiv }}</td>
+            </tr>
+            <tr>
+                <td>Jumlah Faskes</td>
+                <td>:</td>
+                <td>{{ jml_faskes }}</td>
+            </tr>
+        </table>
+    </div>
     <div class="div-table my-5">
         <table id="datatable" class="table table-hover table-striped">
             <thead>
