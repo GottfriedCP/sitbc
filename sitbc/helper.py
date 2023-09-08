@@ -1,6 +1,7 @@
 from decouple import config
 import datetime
 import mysql.connector
+import numpy as np
 import pandas as pd
 import pygsheets
 import simplejson as json
@@ -156,10 +157,11 @@ def pop_ind_nl(self_command):
         "b5r7t",
         "cat_inl",
     ]
+    df = df.replace({np.nan: None})
     self_command.stdout.write(f"number of rows: {len(rows)}")
 
     worksheet = sheet.worksheet(property="title", value="IND_NL")
-
+    worksheet.clear(start='A1', end=None, fields='*')
     worksheet.set_dataframe(df, (1, 1))
 
     cursor.close()
@@ -280,9 +282,11 @@ def pop_ind_l(self_command):
         "b4r8k4",
         "cat_il",
     ]
+    df = df.replace({np.nan: None})
     self_command.stdout.write(f"number of rows: {len(rows)}")
 
     worksheet = sheet.worksheet(property="title", value="IND_L")
+    worksheet.clear(start='A1', end=None, fields='*')
     worksheet.set_dataframe(df, (1, 1))
 
     cursor.close()

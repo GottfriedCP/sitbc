@@ -10,5 +10,5 @@ class Command(BaseCommand):
     #     parser.add_argument('poll_ids', nargs='+', type=int)
 
     def handle(self, *args, **options):
-        # pop_ind_nl(self)
+        pop_ind_nl(self)
         pop_ind_l(self)
