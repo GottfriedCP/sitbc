@@ -10,10 +10,9 @@
         <table id="datatable" class="table table-hover table-striped">
             <thead>
                 <tr>
-                    <th class="text-center">Kode Provinsi</th>
-                    <th>Nama Provinsi</th>
                     <th class="text-center">Kode Kabupaten/Kota</th>
                     <th>Nama Kabupaten/Kota</th>
+                    <th>Nama Provinsi</th>
                     <th class="text-center">Jumlah Individu</th>
                     <th class="text-center">Jumlah Faskes</th>
                     <th>Tindakan</th>
@@ -21,9 +20,8 @@
             </thead>
             <tbody>
                 <tr>
-                    <td class="text-center">--</td>
-                    <td><b>NASIONAL</b></td>
-                    <td></td>
+                    <td class="text-center">0000</td>
+                    <td><b>NASIONAL</b> (31 Kabupaten/Kota)</td>
                     <td></td>
                     <td class="text-center"><b>{{ nas_jml_indiv }}</b></td>
                     <td class="text-center"><b>{{ nas_jml_faskes }}</b></td>
@@ -31,10 +29,9 @@
                 </tr>
                 {% for kk, jml_fk_unik in kks %}
                 <tr>
-                    <td class="text-center">{{ kk.kode_prov }}</td>
-                    <td>{{ kk.nama_prov }}</td>
-                    <td class="text-center">{{ kk.kode_kab }}</td>
+                    <td class="text-center">{{ kk.kode_prov }}{{ kk.kode_kab }}</td>
                     <td>{{ kk.nama }}</td>
+                    <td>{{ kk.nama_prov }}</td>
                     <td class="text-center">{{ kk.jml_indiv }}</td>
                     <td class="text-center">{{ jml_fk_unik }}</td>
                     <td>
