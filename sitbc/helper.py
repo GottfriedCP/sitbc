@@ -166,7 +166,7 @@ def pop_ind_nl(self_command):
         df = df.replace({np.nan: None})
         worksheet = sheet.worksheet(property="title", value="IND_NL")
         worksheet.clear(start="A1", end=None, fields="*")
-        worksheet.set_dataframe(df, (1, 1))
+        worksheet.set_dataframe(df, (1, 1), nan="")
 
     cursor.close()
     cnx.close()
@@ -295,7 +295,7 @@ def pop_ind_l(self_command):
         df = df.replace({np.nan: None})
         worksheet = sheet.worksheet(property="title", value="IND_L")
         worksheet.clear(start="A1", end=None, fields="*")
-        worksheet.set_dataframe(df, (1, 1))
+        worksheet.set_dataframe(df, (1, 1), nan="")
 
     cursor.close()
     cnx.close()
