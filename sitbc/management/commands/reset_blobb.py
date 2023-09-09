@@ -35,8 +35,8 @@ class Command(BaseCommand):
         ):
             query = "TRUNCATE TABLE %s"
             cursor.execute(query, (table, ))
-            cnx.commit()
-
+        
+        cnx.commit()
         cursor.close()
         cnx.close()
 
