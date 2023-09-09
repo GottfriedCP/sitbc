@@ -23,10 +23,19 @@ def index(request, kode_kab=None):
         nas_jml_indiv += kk.jml_indiv
         jml_fk_unik_list.append(jml_fk_unik)
 
+    # PROD SERVER ONLY
+    log_time = ""
+    try:
+        with open("/home/gp/sitbc/pop_inds.log", "r") as logfile:
+            log_time = logfile.read()
+    except:
+        pass
+
     context = {
         "kks": zip(kks, jml_fk_unik_list),
         "nas_jml_indiv": nas_jml_indiv,
         "nas_jml_faskes": sum(jml_fk_unik_list),
+        "log_time": log_time,
     }
     return render(request, "dasbor/index.html", context)
 
@@ -48,10 +57,20 @@ def detail(request, kode_kab):
         .distinct()
         .count()
     )
+
+    # PROD SERVER ONLY
+    log_time = ""
+    try:
+        with open("/home/gp/sitbc/pop_inds.log", "r") as logfile:
+            log_time = logfile.read()
+    except:
+        pass
+
     context = {
         "kk": kk,
         "indivs": indivs,
         "jml_faskes": jml_fk_unik,
+        "log_time": log_time,
     }
     return render(request, "dasbor/detail.html", context)
 

@@ -4,6 +4,9 @@
 
 {% block body_bl %}
 <div class="container">
+    {% if log_time %}
+    <p class="text-center mb-5">Pengecekan terakhir dari server pada {{ log_time }} WIB</p>
+    {% endif %}
     <nav aria-label="breadcrumb" class="text-success">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{% url 'sitbc:dasbor:index' %}" class="link-success">Indeks</a></li>
