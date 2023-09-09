@@ -42,5 +42,5 @@ class Command(BaseCommand):
         cursor.close()
         cnx.close()
 
+        os.system("/usr/bin/php7.4 /home/gp/htdocs/csweb/ivtb/bin/console csweb:process-cases")
         self.stdout.write(f"berhasil truncate dan buat ulang tabel blob")
-        # os.system("/usr/bin/php7.4 /home/gp/htdocs/csweb/ivtb/bin/console csweb:process-cases")
