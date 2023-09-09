@@ -24,6 +24,7 @@ class Command(BaseCommand):
 
         # Create a cursor object
         cursor = cnx.cursor()
+        cursor.execute("SET FOREIGN_KEY_CHECKS=0;")
 
         for table in (
             "cases",
@@ -37,6 +38,7 @@ class Command(BaseCommand):
             cursor.execute(query)
         
         cnx.commit()
+        cursor.execute("SET FOREIGN_KEY_CHECKS=0;")
         cursor.close()
         cnx.close()
 
