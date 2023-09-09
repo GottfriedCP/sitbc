@@ -1,5 +1,7 @@
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
+from django.db.models import IntegerField
+from django.db.models.functions import Cast
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
 
@@ -32,7 +34,14 @@ def index(request, kode_kab=None):
 @login_required
 def detail(request, kode_kab):
     kk = get_object_or_404(KabupatenKota, kode=kode_kab)
-    indivs = Individu.objects.filter(kode_prov_kab=kode_kab)
+    indivs = (
+        Individu.objects.filter(kode_prov_kab=kode_kab)
+        .annotate(
+            nu_ind_int=Cast("nu_ind", IntegerField()),
+            nu_faskes_int=Cast("nu_faskes", IntegerField()),
+        )
+        .order_by("nu_faskes_int", "nu_ind")
+    )
     jml_fk_unik = (
         Individu.objects.filter(kode_prov_kab=kk.kode)
         .values("nu_faskes", "jenis_faskes")

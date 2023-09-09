@@ -4,9 +4,16 @@
 
 {% block body_bl %}
 <div class="container">
+    <nav aria-label="breadcrumb" class="text-success">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'sitbc:dasbor:index' %}" class="link-success">Indeks</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Kab/Kota</li>
+        </ol>
+    </nav>
+      
     <h1><code>{{ kk.kode }}</code> {{ kk.nama }}</h1>
-    Provinsi <code>{{ kk.kode_prov }}</code> {{ kk.nama_prov }}
-    <div>
+    <code>{{ kk.kode_prov }}</code> Provinsi {{ kk.nama_prov }}
+    <div class="my-2">
         <table class="table table-sm table-borderless" style="max-width: 240px;">
             <tr>
                 <td>Jumlah Individu</td>
@@ -47,8 +54,8 @@
                     <td>{{ ind.nama_faskes }}</td>
                     <td class="text-center">{{ ind.nu_faskes }}</td>
                     <td>{{ ind.nama_enum }}</td>
-                    <td>{{ ind.telp_enum }}</td>
-                    <td>{{ ind.get_tgl_kunjungan|date:'d-m-Y' }}</td>
+                    <td>0{{ ind.telp_enum }}</td>
+                    <td>{{ ind.get_tgl_kunjungan|date:'c' }}</td>
                 </tr>
                 {% endfor %}
             </tbody>
@@ -68,12 +75,9 @@
             language: {
                 url: 'https://cdn.datatables.net/plug-ins/1.13.1/i18n/id.json',
             },
-            // "columnDefs": [
-            //     {
-            //         "orderable": false,
-            //         "targets": -1 // -1 refers to the last column
-            //     }
-            // ],
+            "columnDefs": [
+                { "type": "num", "targets": [2, 6] }
+            ],
         });
     });
 </script>

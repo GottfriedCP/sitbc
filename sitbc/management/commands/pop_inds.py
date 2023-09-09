@@ -122,4 +122,9 @@ class Command(BaseCommand):
             n += 1
 
         today_date = datetime.datetime.now().strftime("%d-%m-%Y %H:%M")
+        try:
+            with open("/home/gp/sitbc/pop_inds.log", "w") as logfile:
+                logfile.write(f"{today_date}")
+        except:
+            pass
         self.stdout.write(f"berhasil menulis ke gsheets dan DB pada {today_date}")
