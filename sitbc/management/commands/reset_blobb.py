@@ -38,7 +38,7 @@ class Command(BaseCommand):
             cursor.execute(query)
         
         cnx.commit()
-        cursor.execute("SET FOREIGN_KEY_CHECKS=0;")
+        cursor.execute("SET FOREIGN_KEY_CHECKS=1;")
         cursor.close()
         cnx.close()
 
