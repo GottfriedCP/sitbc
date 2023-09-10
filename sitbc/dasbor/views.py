@@ -49,7 +49,7 @@ def detail(request, kode_kab):
             nu_ind_int=Cast("nu_ind", IntegerField()),
             nu_faskes_int=Cast("nu_faskes", IntegerField()),
         )
-        .order_by("nu_faskes_int", "nu_ind")
+        .order_by("nu_faskes_int", "nu_ind_int")
     )
     jml_fk_unik = (
         Individu.objects.filter(kode_prov_kab=kk.kode)
