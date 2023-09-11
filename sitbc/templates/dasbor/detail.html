@@ -53,7 +53,9 @@
                     <td><b>{{ ind.nama }}</b></td>
                     <td class="text-center">{{ ind.nu_ind }}</td>
                     <td>{{ ind.get_jk_text }}</td>
-                    <td>{{ ind.get_jenis_faskes_text }}</td>
+                    <td class="{% if ind.get_jenis_faskes_text == 'INVALID' %}text-warning{% endif %}">
+                        {{ ind.get_jenis_faskes_text }}
+                    </td>
                     <td>{{ ind.nama_faskes }}</td>
                     <td class="text-center">{{ ind.nu_faskes }}</td>
                     <td>{{ ind.nama_enum }}</td>
