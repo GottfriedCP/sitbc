@@ -97,7 +97,7 @@ class Command(BaseCommand):
 
                 kk = (
                     KabupatenKota.objects.get(kode=indiv.kode_prov_kab)
-                    if KabupatenKota.objects.filter(kode=indiv.kode_prov_kab).exists()
+                    if KabupatenKota.objects.filter(kode=indiv.kode_prov_kab).count() == 1
                     else None
                 )
                 if kk:

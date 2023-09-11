@@ -36,6 +36,8 @@ def index(request, kode_kab=None):
         "nas_jml_indiv": nas_jml_indiv,
         "nas_jml_faskes": sum(jml_fk_unik_list),
         "log_time": log_time,
+        # untuk grafik
+        "indivs_per_kk": [[kk.nama for kk in kks], [kk.jml_indiv for kk in kks]],
     }
     return render(request, "dasbor/index.html", context)
 

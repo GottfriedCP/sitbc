@@ -44,7 +44,7 @@ class Individu(models.Model):
     tgl_kunjungan = models.CharField(max_length=50, null=True, blank=True)
 
     class Meta:
-        ordering = ['nu_faskes', 'nu_ind']
+        ordering = ["nu_faskes", "nu_ind"]
 
     def get_tgl_kunjungan(self):
         tgl_kunjungan = self.tgl_kunjungan
@@ -100,6 +100,13 @@ class KabupatenKota(models.Model):
     jml_dpm = models.IntegerField(default=0)
     jml_balai = models.IntegerField(default=0)
     jml_lab = models.IntegerField(default=0)
+
+    class Meta:
+        verbose_name = "Kabupaten/Kota"
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return f"{self.kode} {self.nama}"
 
     def get_jml_faskes(self):
         return (
