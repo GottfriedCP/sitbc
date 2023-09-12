@@ -62,7 +62,15 @@ def detail(request, kode_kab):
 
     # untuk grafik pie
     data_label = ["RS", "PKM", "Klinik", "DPM", "Balai", "Lab"]
-    data_faskes = [kk.jml_rs, kk.jml_pkm, kk.jml_klinik, kk.jml_dpm, kk.jml_balai, kk.jml_lab, ]
+    data_faskes = [
+        kk.jml_rs,
+        kk.jml_pkm,
+        kk.jml_klinik,
+        kk.jml_dpm,
+        kk.jml_balai,
+        kk.jml_lab,
+    ]
+    valid_pie = sum(data_faskes) > 0
 
     # PROD SERVER ONLY
     log_time = ""
@@ -78,6 +86,7 @@ def detail(request, kode_kab):
         "jml_faskes": jml_fk_unik,
         "log_time": log_time,
         "data_proporsi_faskes": [data_label, data_faskes],
+        "valid_pie": valid_pie,
     }
     return render(request, "dasbor/detail.html", context)
 

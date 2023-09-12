@@ -31,10 +31,12 @@
         </table>
     </div>
     <div class="d-flex justify-content-center my-3">
+        {% if valid_pie %}
         <div style="overflow-x: scroll;">
-            <h5 class="text-center">Sebaran Individu</h5>
-            <canvas width="300" height="320" id="indvsPerFaskesChart"></canvas>
+            <h5 class="text-center">Jumlah Individu Berdasarkan Jenis Faskes</h5>
+            <canvas width="300" id="indvsPerFaskesChart"></canvas>
         </div>
+        {% endif %}
     </div>
     <div class="div-table my-5">
         <table id="datatable" class="table table-hover table-striped">
@@ -114,6 +116,7 @@
             }]
         },
         options: {
+            responsive: false,
             plugins: {
                 datalabels: {
                     anchor: 'center',
