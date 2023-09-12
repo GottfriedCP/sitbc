@@ -30,6 +30,12 @@
             </tr>
         </table>
     </div>
+    <div class="d-flex justify-content-center my-3">
+        <div style="overflow-x: scroll;">
+            <h5 class="text-center">Sebaran Individu</h5>
+            <canvas width="300" height="320" id="indvsPerFaskesChart"></canvas>
+        </div>
+    </div>
     <div class="div-table my-5">
         <table id="datatable" class="table table-hover table-striped">
             <thead class="bg-white sticky-top">
@@ -84,6 +90,42 @@
                 { "type": "num", "targets": [2, 6] }
             ],
         });
+    });
+</script>
+<script>
+    const ctx = document.getElementById('indvsPerFaskesChart');
+    new Chart(ctx, {
+        plugins: [ChartDataLabels],
+        type: 'pie',
+        data: {
+            labels: {{ data_proporsi_faskes.0|safe }},
+            datasets: [{
+                label: 'Jumlah individu di faskes',
+                data: {{ data_proporsi_faskes.1|safe }},
+                backgroundColor: [
+                    'blue',
+                    'green',
+                    'yellow',
+                    'brown',
+                    'grey',
+                    'purple',
+                ],
+                hoverOffset: 4
+            }]
+        },
+        options: {
+            plugins: {
+                datalabels: {
+                    anchor: 'center',
+                    align: 'center',
+                    color: 'white',
+                    backgroundColor: '#16b3ac',
+                },
+                legend: {
+                    position: 'top',
+                }
+            }
+        }
     });
 </script>
 {% endblock %}

@@ -60,6 +60,10 @@ def detail(request, kode_kab):
         .count()
     )
 
+    # untuk grafik pie
+    data_label = ["RS", "PKM", "Klinik", "DPM", "Balai", "Lab"]
+    data_faskes = [kk.jml_rs, kk.jml_pkm, kk.jml_klinik, kk.jml_dpm, kk.jml_balai, kk.jml_lab, ]
+
     # PROD SERVER ONLY
     log_time = ""
     try:
@@ -73,6 +77,7 @@ def detail(request, kode_kab):
         "indivs": indivs,
         "jml_faskes": jml_fk_unik,
         "log_time": log_time,
+        "data_proporsi_faskes": [data_label, data_faskes],
     }
     return render(request, "dasbor/detail.html", context)
 
