@@ -101,6 +101,7 @@ class KabupatenKota(models.Model):
     jml_balai = models.IntegerField(default=0)
     jml_lab = models.IntegerField(default=0)
     link_idcf = models.TextField(null=True, blank=True)
+    pj = models.CharField(max_length=150, blank=True)
 
     class Meta:
         verbose_name = "Kabupaten/Kota"
