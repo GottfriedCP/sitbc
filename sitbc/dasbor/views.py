@@ -53,6 +53,15 @@ def detail(request, kode_kab):
         )
         .order_by("nu_faskes_int", "nu_ind_int")
     )
+    filter_jenis_faskes = request.GET.get("jenis_faskes")
+    filter_jenis_faskes_int = 0
+    if filter_jenis_faskes:
+        try:
+            filter_jenis_faskes_int = int(filter_jenis_faskes)
+        except:
+            pass
+        if filter_jenis_faskes_int > 0:
+            indivs = indivs.filter(jenis_faskes=filter_jenis_faskes_int)
     jml_fk_unik = (
         Individu.objects.filter(kode_prov_kab=kk.kode)
         .values("nu_faskes", "jenis_faskes")
@@ -72,6 +81,16 @@ def detail(request, kode_kab):
     ]
     valid_pie = sum(data_faskes) > 0
 
+    kode_jenis_faskes = [
+        (0, "Semua"),
+        (1, "RS"),
+        (2, "PKM"),
+        (3, "Klinik"),
+        (4, "DPM"),
+        (5, "Balai"),
+        (6, "Lab"),
+    ]
+
     # PROD SERVER ONLY
     log_time = ""
     try:
@@ -87,6 +106,8 @@ def detail(request, kode_kab):
         "log_time": log_time,
         "data_proporsi_faskes": [data_label, data_faskes],
         "valid_pie": valid_pie,
+        "kode_jenis_faskes_list": kode_jenis_faskes,
+        "filter_jenis_faskes": filter_jenis_faskes_int,
     }
     return render(request, "dasbor/detail.html", context)
 

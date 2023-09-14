@@ -31,9 +31,11 @@
                 <td>{{ jml_faskes }}</td>
             </tr>
         </table>
-        <a class="btn btn-outline-success my-3" href="{{ kk.link_idcf }}" target="_blank">
+        {% if link_idcf %}
+        <a class="btn btn-outline-success my-3" href="{{ kk.link_idcf|default:'#' }}" target="_blank">
             Hasil Individual Data Collection Form (IDCF) (CP: Agnita)
         </a>
+        {% endif %}
     </div>
     <div class="d-flex justify-content-center my-3">
         {% if valid_pie %}
@@ -44,6 +46,12 @@
         {% endif %}
     </div>
     <div class="div-table my-5">
+        <div class="d-flex flex-wrap justify-content-start my-3">
+            <b>Filter: </b>&nbsp;
+            {% for kode_jf in kode_jenis_faskes_list %}
+            <a class="btn btn-sm {% if filter_jenis_faskes != kode_jf.0 %}btn-outline-success{% else %}btn-success{% endif %} me-2" href="?jenis_faskes={{ kode_jf.0 }}">{{ kode_jf.1 }}</a>
+            {% endfor %}
+        </div>
         {% if indivs %}
         <table id="datatable" class="table table-hover table-striped">
             <thead class="bg-white sticky-top">
@@ -80,7 +88,7 @@
             </tbody>
         </table>
         {% else %}
-        Belum ada data masuk dari enumerator
+        Belum ada data masuk dari enumerator {% if filter_jenis_faskes %}untuk jenis faskes ini{% endif %}
         {% endif %}
     </div>
 </div>
