@@ -17,11 +17,11 @@
     </nav>
       
     <h1><code>{{ kk.kode }}</code> {{ kk.nama }}</h1>
-    <code>{{ kk.kode_prov }}</code> Provinsi {{ kk.nama_prov }}
+    <code>{{ kk.kode_prov }}</code> {{ kk.nama_prov }}
     <div class="my-2">
         <table class="table table-sm table-borderless" style="max-width: 500px;">
             <tr>
-                <td>Nama Penanggung Jawab</td>
+                <td>Penanggung Jawab Kab/Kota</td>
                 <td>:</td>
                 <td>{{ kk.pj|default:'-' }}</td>
             </tr>
