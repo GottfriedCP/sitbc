@@ -28,6 +28,7 @@
                     <th class="text-center">Kode Kabupaten/Kota</th>
                     <th>Nama Kabupaten/Kota</th>
                     <th>Nama Provinsi</th>
+                    <th>Nama PJ</th>
                     <th class="text-center">Jumlah Individu</th>
                     <th class="text-center">Jumlah Faskes</th>
                     <th>Tindakan</th>
@@ -38,6 +39,7 @@
                     <td class="text-center">0000</td>
                     <td><b>NASIONAL</b> (31 Kabupaten/Kota)</td>
                     <td></td>
+                    <td></td>
                     <td class="text-center"><b>{{ nas_jml_indiv }}</b></td>
                     <td class="text-center"><b>{{ nas_jml_faskes }}</b></td>
                     <td>-</td>
@@ -47,6 +49,7 @@
                     <td class="text-center">{{ kk.kode_prov }}{{ kk.kode_kab }}</td>
                     <td>{{ kk.nama }}</td>
                     <td>{{ kk.nama_prov }}</td>
+                    <td>{{ kk.pj|default:'-' }}</td>
                     <td class="text-center">{{ kk.jml_indiv }}</td>
                     <td class="text-center">{{ jml_fk_unik }}</td>
                     <td>
