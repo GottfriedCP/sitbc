@@ -51,7 +51,7 @@ def detail(request, kode_kab):
             nu_ind_int=Cast("nu_ind", IntegerField()),
             nu_faskes_int=Cast("nu_faskes", IntegerField()),
         )
-        .order_by("nu_faskes_int", "nu_ind_int")
+        .order_by("nu_faskes_int", "jenis_faskes", "nu_ind_int")
     )
     filter_jenis_faskes = request.GET.get("jenis_faskes")
     filter_jenis_faskes_int = 0
