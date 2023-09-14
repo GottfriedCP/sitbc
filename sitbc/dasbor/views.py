@@ -68,6 +68,16 @@ def detail(request, kode_kab):
         .distinct()
         .count()
     )
+    jml_fk_list = []
+    for i in range(1, 7):
+        j = (
+            Individu.objects.filter(kode_prov_kab=kk.kode)
+            .values("nu_faskes")
+            .filter(jenis_faskes=str(i))
+            .distinct()
+            .count()
+        )
+        jml_fk_list.append(j)
 
     # untuk grafik pie
     data_label = ["RS", "PKM", "Klinik", "DPM", "Balai", "Lab"]
@@ -102,9 +112,11 @@ def detail(request, kode_kab):
     context = {
         "kk": kk,
         "indivs": indivs,
-        "jml_faskes": jml_fk_unik,
+        "jml_faskes_unik": jml_fk_unik,
+        "jml_fk_list": jml_fk_list,
         "log_time": log_time,
-        "data_proporsi_faskes": [data_label, data_faskes],
+        "data_proporsi_individu": [data_label, data_faskes],
+        "data_proporsi_faskes": [data_label, jml_fk_list],
         "valid_pie": valid_pie,
         "kode_jenis_faskes_list": kode_jenis_faskes,
         "filter_jenis_faskes": filter_jenis_faskes_int,

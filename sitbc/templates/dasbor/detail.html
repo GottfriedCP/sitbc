@@ -33,7 +33,7 @@
             <tr>
                 <td>Jumlah Faskes</td>
                 <td>:</td>
-                <td>{{ jml_faskes }}</td>
+                <td>{{ jml_faskes_unik }}</td>
             </tr>
         </table>
         {% if kk.link_idcf %}
@@ -42,11 +42,15 @@
         </a>
         {% endif %}
     </div>
-    <div class="d-flex justify-content-center my-3">
+    <div class="d-flex justify-content-evenly my-3">
         {% if valid_pie %}
-        <div style="overflow-x: scroll;">
+        <div class="mx-3" style="overflow-x: scroll;">
             <h5 class="text-center">Jumlah Individu Berdasarkan Jenis Faskes</h5>
             <canvas width="300" id="indvsPerFaskesChart"></canvas>
+        </div>
+        <div class="mx-3" style="overflow-x: scroll;">
+            <h5 class="text-center">Jumlah Faskes Berdasarkan Jenis Faskes</h5>
+            <canvas width="300" id="faskesPerJenisChart"></canvas>
         </div>
         {% endif %}
     </div>
@@ -122,9 +126,46 @@
         plugins: [ChartDataLabels],
         type: 'pie',
         data: {
+            labels: {{ data_proporsi_individu.0|safe }},
+            datasets: [{
+                label: 'Jumlah individu',
+                data: {{ data_proporsi_individu.1|safe }},
+                backgroundColor: [
+                    'blue',
+                    'green',
+                    'yellow',
+                    'brown',
+                    'grey',
+                    'purple',
+                ],
+                hoverOffset: 4
+            }]
+        },
+        options: {
+            responsive: false,
+            plugins: {
+                datalabels: {
+                    anchor: 'center',
+                    align: 'center',
+                    color: 'white',
+                    backgroundColor: '#16b3ac',
+                },
+                legend: {
+                    position: 'top',
+                }
+            }
+        }
+    });
+</script>
+<script>
+    const ctx2 = document.getElementById('faskesPerJenisChart');
+    new Chart(ctx2, {
+        plugins: [ChartDataLabels],
+        type: 'pie',
+        data: {
             labels: {{ data_proporsi_faskes.0|safe }},
             datasets: [{
-                label: 'Jumlah individu di faskes',
+                label: 'Jumlah faskes',
                 data: {{ data_proporsi_faskes.1|safe }},
                 backgroundColor: [
                     'blue',
