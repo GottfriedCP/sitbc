@@ -5,7 +5,9 @@
 {% block body_bl %}
 <div class="container">
     {% if log_time %}
-    <p class="text-center mb-5">Pengecekan terakhir dari server pada {{ log_time }} WIB</p>
+    <p class="text-center mb-5">Diperbarui setiap satu jam. Terakhir pada {{ log_time }} WIB<br>
+        Segarkan laman ini (F5) untuk melihat data terbaru
+    </p>
     {% endif %}
     <nav aria-label="breadcrumb" class="text-success">
         <ol class="breadcrumb">
@@ -29,6 +31,9 @@
                 <td>{{ jml_faskes }}</td>
             </tr>
         </table>
+        <a class="btn btn-outline-success my-3" href="{{ kk.link_idcf }}" target="_blank">
+            Hasil Individual Data Collection Form (IDCF) (CP: Agnita)
+        </a>
     </div>
     <div class="d-flex justify-content-center my-3">
         {% if valid_pie %}
@@ -39,6 +44,7 @@
         {% endif %}
     </div>
     <div class="div-table my-5">
+        {% if indivs %}
         <table id="datatable" class="table table-hover table-striped">
             <thead class="bg-white sticky-top">
                 <tr>
@@ -73,6 +79,9 @@
                 {% endfor %}
             </tbody>
         </table>
+        {% else %}
+        Belum ada data masuk dari enumerator
+        {% endif %}
     </div>
 </div>
 {% endblock %}

@@ -7,13 +7,20 @@
     <h1 class="text-center">Studi Inventori TBC 2023-2024</h1>
     <h3 class="text-center mb-5">Perkembangan Pengumpulan Data Individu</h3>
     {% if log_time %}
-    <p class="text-center mb-5">Pengecekan terakhir dari server pada {{ log_time }} WIB</p>
+    <p class="text-center mb-5">Diperbarui setiap satu jam. Terakhir pada {{ log_time }} WIB<br>
+        Segarkan laman ini (F5) untuk melihat data terbaru
+    </p>
     {% endif %}
     <div class="d-flex justify-content-center my-3">
         <div style="overflow-x: scroll;">
             <canvas width="1000" height="320" id="indvsPerKKChart"></canvas>
         </div>
-    </div>      
+    </div>
+    <div class="my-3">
+        <a class="btn btn-outline-success" href="https://link.kemkes.go.id/RekapIDCF" target="_blank">
+            Rekapitulasi Individual Data Collection Form (IDCF) (CP: Agnita)
+        </a>
+    </div>
     <div class="div-table">
         <table id="datatable" class="table table-hover table-striped">
             <thead class="bg-white sticky-top">

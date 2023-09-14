@@ -100,6 +100,7 @@ class KabupatenKota(models.Model):
     jml_dpm = models.IntegerField(default=0)
     jml_balai = models.IntegerField(default=0)
     jml_lab = models.IntegerField(default=0)
+    link_idcf = models.TextField(null=True, blank=True)
 
     class Meta:
         verbose_name = "Kabupaten/Kota"
