@@ -40,6 +40,7 @@ class Command(BaseCommand):
             cursor = cnx.cursor()
 
             if n == 0:
+                # Non lab
                 query = (
                     "SELECT l.b2r1_f as kode_prov, l.b2r2_f as kode_kab, "
                     "r.pteks_f as nama_prov, r.kbteks_f as nama_kab, "
@@ -47,7 +48,8 @@ class Command(BaseCommand):
                     "l.b2r3_f as nu_faskes, l.b2r5_f as jenis_faskes, "
                     "r.b2r4_f as nama_faskes, "
                     "l.b3r1 as nu_ind, r.b3r3 as nama, r.b3r4 as jk, "
-                    "r.b1br1 as nama_enum, r.telp_enum as telp_enum, r.b1br2 as tgl_kunjungan "
+                    "r.b1br1 as nama_enum, r.telp_enum as telp_enum, r.b1br2 as tgl_kunjungan, "
+                    "r.id_ind_nl as ori_id "
                     "FROM `ind_nl_rec` as r "
                     "INNER JOIN `level-1` as l "
                     "ON l.`level-1-id` = r.`level-1-id` "
@@ -56,6 +58,7 @@ class Command(BaseCommand):
                     "WHERE c.deleted = 0 and c.partial_save_mode IS NULL "
                 )
             else:
+                # Lab
                 query = (
                     "SELECT l.b2r1_f as kode_prov, l.b2r2_f as kode_kab, "
                     "r.pteks_f as nama_prov, r.kbteks_f as nama_kab, "
@@ -63,7 +66,8 @@ class Command(BaseCommand):
                     "l.b2r3_f as nu_faskes, l.b2r5_f as jenis_faskes, "
                     "r.b2r4_f as nama_faskes, "
                     "l.b3r1 as nu_ind, r.b3r4 as nama, r.b3r5 as jk, "
-                    "r.b1br1 as nama_enum, r.telp_enum as telp_enum, r.b1br2 as tgl_kunjungan "
+                    "r.b1br1 as nama_enum, r.telp_enum as telp_enum, r.b1br2 as tgl_kunjungan, "
+                    "r.id_ind_l as ori_id "
                     "FROM `ind_nl_rec` as r "
                     "INNER JOIN `level-1` as l "
                     "ON l.`level-1-id` = r.`level-1-id` "
@@ -77,6 +81,11 @@ class Command(BaseCommand):
             # Fetch the result
             rows = cursor.fetchall()
             for row in rows:
+                jenis_faskes = None
+                if row[6]:
+                    jenis_faskes = row[6]
+                elif len(row[14]) == 12:
+                    jenis_faskes = row[14][4]
                 indiv = Individu(
                     kode_prov=row[0],
                     kode_kab=row[1],
@@ -84,7 +93,7 @@ class Command(BaseCommand):
                     nama_kab=str(row[3]).upper(),
                     dsfk=row[4],
                     nu_faskes=row[5],
-                    jenis_faskes=row[6],
+                    jenis_faskes=jenis_faskes,
                     nama_faskes=str(row[7]).upper(),
                     nu_ind=row[8],
                     nama=str(row[9]).upper(),
@@ -97,7 +106,8 @@ class Command(BaseCommand):
 
                 kk = (
                     KabupatenKota.objects.get(kode=indiv.kode_prov_kab)
-                    if KabupatenKota.objects.filter(kode=indiv.kode_prov_kab).count() == 1
+                    if KabupatenKota.objects.filter(kode=indiv.kode_prov_kab).count()
+                    == 1
                     else None
                 )
                 if kk:
